@@ -23,13 +23,20 @@ const Body = () => {
 		);
 
 		const json = await data.json();
+		console.log(json);
 
 		// Optional Chaining
-		setListOfRestraunt(json?.data?.cards[2]?.data?.data?.cards);
-		setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+		setListOfRestraunt(
+			json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				?.restaurants,
+		);
+		setFilteredRestaurant(
+			json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				?.restaurants,
+		);
 	};
 
-	return listOfRestaurants.length == 0 ? (
+	return listOfRestaurants.length === 0 ? (
 		<Shimmer />
 	) : (
 		<div className="body">
@@ -50,7 +57,7 @@ const Body = () => {
 							console.log(searchText);
 
 							const filteredRestaurant = listOfRestaurants.filter((res) =>
-								res.data.name.toLowerCase().includes(searchText.toLowerCase()),
+								res.info.name.toLowerCase().includes(searchText.toLowerCase()),
 							);
 
 							setFilteredRestaurant(filteredRestaurant);
@@ -74,8 +81,8 @@ const Body = () => {
 			<div className="res-container">
 				{filteredRestaurant.map((restaurant) => (
 					<Link
-						key={restaurant.data.id}
-						to={'/restaurants/' + restaurant.data.id}
+						key={restaurant.info.id}
+						to={'/restaurants/' + restaurant.info.id}
 					>
 						<RestaurantCard resData={restaurant} />
 					</Link>
