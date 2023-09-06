@@ -12,12 +12,14 @@ class UserClass extends React.Component {
 				location: 'Data',
 			},
 		};
+		// 1st -> the construtor will called in the life cycle method
 	}
 
 	async componentDidMount() {
 		const data = await fetch('https://api.github.com/users/VidyaSagarMehar');
 		const json = await data.json();
 
+		// update the state variable like this ->
 		this.setState({
 			userInfo: json,
 		});
@@ -26,6 +28,7 @@ class UserClass extends React.Component {
 	}
 
 	render() {
+		// 2nd -> render will be called
 		// destructuring
 		const { name, location, avatar_url } = this.state.userInfo;
 		return (
