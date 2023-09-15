@@ -28,4 +28,21 @@ const RestaurantCard = (props) => {
 	);
 };
 
+// HIGHER ORDER COMPONENT
+// input --> ReastaurantCard =>> RestaurantCardOpen
+
+export const withOpenLabel = (RestaurantCard) => {
+	// It will return a enhanced component
+	return (props) => {
+		return (
+			<div>
+				<label className="absolute bg-blue-700 text-white m-1 p-1 rounded">
+					Open
+				</label>
+				<RestaurantCard {...props} />
+			</div>
+		);
+	};
+};
+
 export default RestaurantCard;

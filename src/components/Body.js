@@ -1,4 +1,4 @@
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard, { withOpenLabel } from './RestaurantCard';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,10 @@ const Body = () => {
 	const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
 	const [searchText, setSearchText] = useState('');
+
+	const RestaurantCardOpen = withOpenLabel(RestaurantCard);
+
+	console.log(listOfRestaurants);
 
 	// Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
 	console.log('Body Rendered');
@@ -93,7 +97,11 @@ const Body = () => {
 						key={restaurant.info.id}
 						to={'/restaurants/' + restaurant.info.id}
 					>
-						<RestaurantCard resData={restaurant} />
+						{restaurant.info.isOpen ? (
+							<RestaurantCardOpen resData={restaurant} />
+						) : (
+							<RestaurantCard resData={restaurant} />
+						)}
 					</Link>
 				))}
 			</div>
