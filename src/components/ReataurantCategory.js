@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import ItemList from './ItemList';
 
-const ReataurantCategory = ({ data, showItems, setShowIndex }) => {
+const ReataurantCategory = ({ data, showItems, setShowIndex, setToggle }) => {
 	// console.log(data);
-	// const [showItems, setShowItems] = useState(false);
+	// const [toggle, setToggle] = useState(false);
 
-	const handleClick = () => {
-		// toggle feature
-		// setShowItems(!showItems);
+	const handleClick = (e) => {
 		setShowIndex();
+		setToggle();
 	};
 
 	return (
@@ -17,7 +15,7 @@ const ReataurantCategory = ({ data, showItems, setShowIndex }) => {
 			<div className="w-6/12 bg-gray-50 shadow-md p-4 m-auto my-3">
 				<div
 					className=" flex justify-between cursor-pointer"
-					onClick={handleClick}
+					onClick={(e) => handleClick(e)}
 				>
 					<span className="font-semibold text-lg">
 						{data.title} ({data.itemCards.length})

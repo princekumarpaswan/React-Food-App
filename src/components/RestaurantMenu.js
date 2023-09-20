@@ -9,7 +9,9 @@ const RestaurantMenu = () => {
 
 	const resInfo = useRestaurantMenu(resId);
 
-	const [showIdex, setShowIndex] = useState(1);
+	const [showIdex, setShowIndex] = useState(0);
+
+	const [toggle, setToggle] = useState(true);
 
 	if (!resInfo) {
 		return <Shimmer />;
@@ -18,15 +20,11 @@ const RestaurantMenu = () => {
 	const { name, cuisines, costForTwoMessage } =
 		resInfo?.cards[0]?.card?.card?.info;
 
-	// Item cards
-	// const { itemCards } =
-	// 	resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-
 	// console.log(
 	// 	'This is item card',
 	// 	resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards,
 	// );
-
+	// console.log(toggle);
 	const categories =
 		resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
 			(c) =>
@@ -48,8 +46,9 @@ const RestaurantMenu = () => {
 				<ReataurantCategory
 					key={category?.card?.card?.title}
 					data={category?.card?.card}
-					showItems={index === showIdex && true}
+					showItems={index === showIdex && toggle}
 					setShowIndex={() => setShowIndex(index)}
+					setToggle={() => setToggle(!toggle)}
 				/>
 			))}
 		</div>
