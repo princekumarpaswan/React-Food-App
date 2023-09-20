@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import ItemList from './ItemList';
 
-const ReataurantCategory = ({ data }) => {
+const ReataurantCategory = ({ data, showItems, setShowIndex }) => {
 	// console.log(data);
-	const [showItems, setShowItems] = useState(false);
+	// const [showItems, setShowItems] = useState(false);
 
 	const handleClick = () => {
 		// toggle feature
-		setShowItems(!showItems);
+		// setShowItems(!showItems);
+		setShowIndex();
 	};
 
 	return (
