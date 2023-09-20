@@ -1,7 +1,7 @@
 import { CDN_URL } from '../utils/constants';
 
 const ItemList = ({ items }) => {
-	// console.log(items);
+	console.log(items);
 	return (
 		<div>
 			{items.map((item) => (
@@ -12,7 +12,12 @@ const ItemList = ({ items }) => {
 					<div className="w-9/12">
 						<div>
 							<span>{item.card.info.name}</span> <br />
-							<span>₹ {item.card.info.price / 100}</span>
+							<span>
+								₹{' '}
+								{item.card.info.defaultPrice
+									? item.card.info.defaultPrice / 100
+									: item.card.info.price / 100}
+							</span>
 						</div>
 						<p className="text-xs">{item.card.info.description}</p>
 					</div>
