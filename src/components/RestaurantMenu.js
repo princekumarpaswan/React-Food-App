@@ -7,6 +7,8 @@ import { useState } from 'react';
 const RestaurantMenu = () => {
 	const { resId } = useParams();
 
+	const dummy = 'Dummy Data';
+
 	const resInfo = useRestaurantMenu(resId);
 
 	const [showIdex, setShowIndex] = useState(0);
@@ -49,6 +51,7 @@ const RestaurantMenu = () => {
 					showItems={index === showIdex && toggle}
 					setShowIndex={() => setShowIndex(index)}
 					setToggle={() => setToggle(!toggle)}
+					dummy={dummy}
 				/>
 			))}
 		</div>

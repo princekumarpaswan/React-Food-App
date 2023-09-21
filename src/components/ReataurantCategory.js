@@ -1,6 +1,12 @@
 import ItemList from './ItemList';
 
-const ReataurantCategory = ({ data, showItems, setShowIndex, setToggle }) => {
+const ReataurantCategory = ({
+	data,
+	showItems,
+	setShowIndex,
+	setToggle,
+	dummy,
+}) => {
 	// console.log(data);
 	// const [toggle, setToggle] = useState(false);
 
@@ -23,7 +29,9 @@ const ReataurantCategory = ({ data, showItems, setShowIndex, setToggle }) => {
 					<span>🔽</span>
 				</div>
 				{/* Accordian body */}
-				<div>{showItems && <ItemList items={data.itemCards} />}</div>
+				<div>
+					{showItems && <ItemList items={data.itemCards} dummy={dummy} />}
+				</div>
 			</div>
 		</div>
 	);
