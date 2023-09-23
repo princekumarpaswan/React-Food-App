@@ -1,8 +1,19 @@
 import { CDN_URL } from '../utils/constants';
+// import { useDispatch } from 'react-redux'
 
 const ItemList = ({ items, dummy }) => {
-	console.log(dummy);
-	// console.log(items);
+
+	// const dispatch = useDispatch()
+
+
+
+	const handleaddItem = () => {
+		// Dispatch an item
+
+
+	}
+
+
 	return (
 		<div>
 			{items.map((item) => (
@@ -24,7 +35,7 @@ const ItemList = ({ items, dummy }) => {
 					</div>
 					<div className="w-3/12">
 						<img className="rounded" src={CDN_URL + item.card.info.imageId} />
-						<button className="p-2 bg-green-500 absolute ml-14 -my-8 rounded-md text-xs font-bold">
+						<button onClick={handleaddItem} className="p-2 bg-green-500 absolute ml-14 -my-8 rounded-md text-xs font-bold">
 							Add +
 						</button>
 					</div>
