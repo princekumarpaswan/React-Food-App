@@ -1,9 +1,9 @@
 import { CDN_URL } from '../utils/constants';
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const ItemList = ({ items, dummy }) => {
 
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
 
 
@@ -44,5 +44,7 @@ const ItemList = ({ items, dummy }) => {
 		</div>
 	);
 };
+
+
 
 export default ItemList;
