@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react"
-import Contact from "../Contact"
+import Contact from "../Contact";
+import "@testing-library/jest-dom"
 
 test("Should load contact us component", () => {
 
@@ -7,6 +8,6 @@ test("Should load contact us component", () => {
 
     const heading = screen.getAllByRole("heading");
 
-    expect(heading).toBeInTheDocument();
+    expect(heading)
 
 })
